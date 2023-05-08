@@ -9,20 +9,29 @@ document.addEventListener("DOMContentLoaded", function () {
 function GetCoords() {
   const status = document.querySelector("#status");
 
-  function success(position) {
-    status.textContent = "";
-    RequestLocation(position.coords.latitude, position.coords.longitude);
-  }
+  // function success(position) {
+  //   status.textContent = "";
+  //   RequestLocation(position.coords.latitude, position.coords.longitude);
+  // }
 
-  function error() {
-    status.textContent = "Unable to retrieve your location";
-  }
+  // function error() {
+  //   status.textContent = "Unable to retrieve your location";
+  // }
 
   if (!navigator.geolocation) {
     status.textContent = "Geolocation is not supported by your browser";
   } else {
     status.textContent = "Locating…";
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        status.textContent = "";
+        RequestLocation(position.coords.latitude, position.coords.longitude);
+      },
+
+      () => {
+        status.textContent = "Unable to retrieve your location";
+      }
+    );
   }
 }
 

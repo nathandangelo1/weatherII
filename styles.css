@@ -17,7 +17,10 @@
 
 body {
   max-width: 800px;
-  min-width: 100px;
+  padding: auto;
+  margin: auto;
+  justify-content: center;
+  /* min-width: 100px; */
 }
 
 html,
@@ -38,7 +41,7 @@ body {
 }
 
 .icon-container {
-  flex: 1;
+  /* flex: 1; */
   margin: 1px;
   padding: 15px;
   height: 250px;
@@ -68,7 +71,9 @@ h4 {
   text-align: left;
   background-color: aquamarine;
 }
-
+#header {
+  border: 1px solid darkred;
+}
 .period {
   max-width: 150px;
 }
