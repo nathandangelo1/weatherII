@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+#header {
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 20px;
+}
+
+body {
+  max-width: 800px;
+  min-width: 100px;
+}
+
+html,
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+}
+
+#testDiv {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  background-color: red;
+}
+
+.icon-container {
+  flex: 1;
+  margin: 1px;
+  padding: 15px;
+  height: 250px;
+  background-color: aquamarine;
+  justify-content: center;
+  align-items: center;
+}
+
+ul > li {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  vertical-align: top;
+  overflow: auto;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  background-color: aquamarine;
+  min-width: 195px;
+}
+
+h4 {
+  position: relative;
+  top: 1px;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 2px;
+  text-align: left;
+  background-color: aquamarine;
+}
+
+.period {
+  max-width: 150px;
+}
+
+.icon {
+  margin: auto;
+  justify-self: center;
+}
+
+/* width */
+li::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

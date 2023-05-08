@@ -66,29 +66,51 @@ async function RequestForecast(office, gridX, gridY) {
 } //END FUNCTION
 
 function ReturnForecast(jdata) {
-  let fl = document.getElementById("flist");
   //GET THE WEATHER FROM THE RESPONSE TEXT
   let properties = jdata.properties;
-  let forecast = properties.periods[0];
-  let message = forecast.detailedForecast;
+  // let forecast = properties.periods[0];
+  // let message = forecast.detailedForecast;
 
-  elementForecastText.innerHTML = message;
-  let forecastString = "";
+  // elementForecastText.innerHTML = message;
+  // let forecastString = "";
 
   for (var period in properties.periods) {
     // let daytime = properties.periods[period].daytime; //boolean
     let name = properties.periods[period].name; //string
     let short = properties.periods[period].shortForecast; //string
     let detailed = properties.periods[period].detailedForecast;
+    let temp = properties.periods[period].temperature;
+    let icon = properties.periods[period].icon;
+
+    let l = document.getElementById("flist");
 
     var li = document.createElement("li");
+    l.appendChild(li);
 
-    li.classname =
-      properties.periods[period].daytime == true ? "daytime" : "nighttime";
-    li.innerHTML = `<li> ${name} <br> ${detailed} </li>`;
-    let sl = li.appendChild(document.createElement("ol"));
-    sl.className = "forecast";
-    fl.appendChild(li);
-    //document.getElementById("flist").innerHTML = forecastString;
+    let div = document.createElement("div");
+    div.setAttribute("class", "icon-container");
+    li.appendChild(div);
+
+    let img = new Image();
+    img.src = icon;
+    img.setAttribute("class", "icon");
+    img.setAttribute("alt", `${short}`);
+    div.appendChild(img);
+    div.backgroundImage = img;
+
+    div.innerHTML += `<h4>${name}<h4/>`;
+
+    let p1 = document.createElement("p");
+    p1.className = "period";
+    p1.innerHTML = `${detailed}`;
+    div.appendChild(p1);
+
+    // var element = document.getElementById("icon-container");
+    // element.style.backgroundImage = img;
+
+    // var element = document.getElementById("icon-container");
+    // style = window.getComputedStyle(element);
+    // iconbackground = style.getPropertyValue("background-image");
+    // iconbackground = img;
   }
 }
